@@ -65,8 +65,8 @@ body {
   padding: 20px;
   border: 1px solid #bae6fd;
   box-shadow: 0 2px 6px rgba(14, 165, 233, 0.10);
-  max-width: 760px;          /* << ancho cómodo */
-  margin: 0 auto 20px;       /* centrado */
+  max-width: 760px;        /* ancho cómodo */
+  margin: 0 auto 20px;     /* centrado */
 }
 
 /* Header a ancho completo */
@@ -98,12 +98,16 @@ header img {
 }
 
 /* Chips */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
 .chip {
   background: #e0f2fe;
   color: #0369a1;
   padding: 5px 10px;
   border-radius: 20px;
-  margin-right: 6px;
   font-size: 12px;
 }
 
@@ -116,6 +120,7 @@ header img {
   text-decoration: none;
   border: none;
   transition: background .2s ease;
+  min-height: 40px; /* mejor tacto */
 }
 .btn:hover { background: #0ea5e9; }
 .btn.print { background: #e2e8f0; color: #334155; }
@@ -181,4 +186,58 @@ footer {
   margin-top: 30px;
   color: #64748b;
   font-size: 14px;
+}
+
+/* --------- Responsive (móvil) --------- */
+@media (max-width: 700px) {
+  .wrap { padding: 0 12px; }
+
+  .topnav {
+    gap: 8px;
+    padding: 8px 6px;
+  }
+  .topnav a {
+    padding: 10px 12px;
+    font-size: 16px;
+  }
+
+  .card {
+    max-width: 100%;
+    margin: 0 0 16px 0;
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  /* Header en columna y centrado */
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+  header img {
+    width: 88px;
+    height: 88px;
+    order: 1;              /* Foto primero */
+  }
+
+  /* **Botones debajo de la foto** */
+  .actions {
+    order: 2;              /* Botones segundo */
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .actions .btn { width: 100%; text-align: center; }
+
+  /* Título y chips después */
+  .title { order: 3; }
+
+  .title h1 { font-size: 28px; }
+  .section h2 { font-size: 18px; }
+
+  /* Chips centradas */
+  .chips { justify-content: center; gap: 8px; }
+  .chip  { padding: 6px 10px; font-size: 12px; border-radius: 16px; }
 }
